@@ -1,5 +1,6 @@
 package com.vinsguru.service;
 
+import com.vinsguru.dto.MultiplyRequestDto;
 import com.vinsguru.dto.Response;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -20,6 +21,12 @@ public class ReactiveMathService {
                 .delayElements(Duration.ofSeconds(1))
                 .doOnNext(i -> System.out.println("reactive-math-service processing : " + i))
                 .map(i -> new Response(i * input));
+    }
+
+    public Mono<Response> multiply(Mono<MultiplyRequestDto> requestDtoMono) {
+        return requestDtoMono
+                .map(dto -> dto.getFirst() * dto.getSecond())
+                .map(Response::new);
     }
 
 }
