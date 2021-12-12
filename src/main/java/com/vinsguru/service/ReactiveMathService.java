@@ -1,10 +1,13 @@
 package com.vinsguru.service;
 
 import com.vinsguru.dto.MultiplyRequestDto;
+import com.vinsguru.dto.OperationResultResponse;
 import com.vinsguru.dto.Response;
+import com.vinsguru.model.Operation;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.publisher.Operators;
 
 import java.time.Duration;
 

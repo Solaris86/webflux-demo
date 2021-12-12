@@ -2,6 +2,7 @@ package com.vinsguru.exception.handler;
 
 import com.vinsguru.dto.FailedInputValidationResponse;
 import com.vinsguru.exception.InputValidationException;
+import com.vinsguru.exception.InvalidOperatorValueException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,4 +20,8 @@ public class InputValidationHandler {
         return ResponseEntity.badRequest().body(response);
     }
 
+    @ExceptionHandler(InvalidOperatorValueException.class)
+    public ResponseEntity<String> handleInvalidOperatorValueException(InvalidOperatorValueException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
 }
