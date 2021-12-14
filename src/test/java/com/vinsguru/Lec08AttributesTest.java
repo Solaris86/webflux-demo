@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-public class Lec03HeadersTest extends BaseTest {
+class Lec08AttributesTest extends BaseTest {
 
     @Test
     void headersTest() {
         final Mono<Response> responseMono = this.webClient
                 .post()
                 .uri("reactive-math/multiply")
-                .headers(headers -> headers.set("someKey", "someVal"))
+//                .attribute("auth", "oauth")
                 .bodyValue(buildRequestDto(5, 2))
                 .retrieve()
                 .bodyToMono(Response.class)
