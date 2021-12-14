@@ -1,14 +1,18 @@
 package com.vinsguru.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 public class OperationResultResponse {
 
-    private final String operator;
-    private final String result;
+    private String operator;
+    private String result;
 
 
 
